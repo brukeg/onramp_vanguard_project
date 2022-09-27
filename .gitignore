@@ -6,5 +6,9 @@ schemas.xlsx
 ~$schemas.xlsx
 .env
 .cache
+**/.cache
 /env
 /spotipy_sample.py
+**/__pycache__/**
+
+**/*.pyc
