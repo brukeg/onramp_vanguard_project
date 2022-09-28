@@ -1,5 +1,5 @@
 
-create_view_stmt = """
+create_top_songs_duration_stmt = """
 CREATE VIEW top_songs_duration (
     artist_name, 
     song_name, 

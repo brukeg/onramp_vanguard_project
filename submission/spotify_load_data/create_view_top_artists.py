@@ -1,6 +1,6 @@
 
 
-create_view_stmt = """
+create_top_artists_stmt = """
 CREATE VIEW top_artists (
     artist_name, 
     popularity

@@ -74,15 +74,6 @@ def get_album_data(dataframe: object):
     return albums
 
 
-# @list_to_dataframe
-# def get_artist_top_tracks(dataframe: object):
-#     """
-#     Artist top tracks
-#     """
-#     top_tracks = []
-#     artist_ids = dataframe["uri"]
-#     for artist_id in artist_ids:
-
 @list_to_dataframe
 def get_album_tracks(dataframe: object):
     """
