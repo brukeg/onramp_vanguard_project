@@ -1,15 +1,21 @@
-import dataclasses
+# import dataclasses
 
+# from submission.spotify_ingest_data.top_tracks import *
 from submission.spotify_ingest_data.get_data import *
 from submission.spotify_load_data.load_data import *
 from submission.spotify_process_data.process_data import dedupe_data
 
 DB_NAME = "/Users/brukegetachew/Projects/onramp_vanguard_project/submission/spotify.db"
 
+
 def ingest() -> list[object]:
     artists_df = get_artist_data(input_data)
     dedupe_data(artists_df, "artists_df")
     print(f"Loaded artists {artists_df.head(1)}")
+
+    # top_tracks_df = get_artist_top_tracks(artists_df)
+    # dedupe_data(top_tracks_df, "top_tracks_df")
+    # print(f"Loaded top tracks {artists_df.head(1)}")
 
     albums_df = get_album_data(artists_df)
     dedupe_data(albums_df, "albums_df")
@@ -30,8 +36,10 @@ def ingest() -> list[object]:
         (track_features_df, "track_features")
     ]
 
+
 def load_views():
     pass
+
 
 def main():
     create_tables(create_statement_list, DB_NAME)
@@ -42,7 +50,7 @@ def main():
     print("Inserting data frames")
 
     load_dfs(tables, DB_NAME)
-    print("Done insertion")
+    print("Insertion completed")
 
 
 if __name__ == "__main__":

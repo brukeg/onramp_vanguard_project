@@ -3,7 +3,7 @@ import spotipy
 from dotenv import load_dotenv
 
 from spotipy.oauth2 import SpotifyClientCredentials
-from submission.spotify_process_data.process_data import list_to_dataframe, dedupe_data
+from submission.spotify_process_data.process_data import list_to_dataframe
 
 
 load_dotenv('/Users/brukegetachew/Projects/onramp_vanguard_project/.env')
@@ -44,6 +44,7 @@ def get_artist_data(artists_list: list):
             artists.append(artists_dict)
 
     return artists
+roots_df = get_artist_data(["the roots"])
 
 
 @list_to_dataframe
@@ -72,6 +73,15 @@ def get_album_data(dataframe: object):
 
     return albums
 
+
+# @list_to_dataframe
+# def get_artist_top_tracks(dataframe: object):
+#     """
+#     Artist top tracks
+#     """
+#     top_tracks = []
+#     artist_ids = dataframe["uri"]
+#     for artist_id in artist_ids:
 
 @list_to_dataframe
 def get_album_tracks(dataframe: object):
