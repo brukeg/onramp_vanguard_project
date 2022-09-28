@@ -11,17 +11,8 @@ create_statement_list = [
     create_albums_stmt,
     create_tracks_stmt,
     create_track_features_stmt
-    ]
+]
 
-# dataframe_list = [artists_df, albums_df, tracks_df, track_features_df]
-# table_name_list = ['artists', 'albums', 'tracks', 'track_features']
-
-# my_dict = {
-#     'artists': artists_df,
-#     'albums': albums_df,
-#     'tracks': tracks_df,
-#     'track_features': track_features_df,
-# }
 
 def create_tables(stmts: list, db_name: str):
     with sqlite3.connect(db_name) as conn:
@@ -33,8 +24,6 @@ def create_tables(stmts: list, db_name: str):
 
 
 def insert_data(df: object, table_name: str, db_name):
-    # print(df.head(1))
-    # print(f"\n{table_name=}")
     with sqlite3.connect(db_name) as conn:
         cur=conn.cursor()
         df.to_sql(table_name, conn, if_exists='replace')
