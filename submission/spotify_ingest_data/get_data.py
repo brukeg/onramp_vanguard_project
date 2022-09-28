@@ -46,10 +46,6 @@ def get_artist_data(artists_list: list):
     return artists
 
 
-artists_df = get_artist_data(input_data)
-dedupe_data(artists_df, "artists_df")
-
-
 @list_to_dataframe
 def get_album_data(dataframe: object):
     """
@@ -75,9 +71,6 @@ def get_album_data(dataframe: object):
                 albums.append(albums_dict)
 
     return albums
-
-albums_df = get_album_data(artists_df)
-dedupe_data(albums_df, "albums_df")
 
 
 @list_to_dataframe
@@ -107,10 +100,6 @@ def get_album_tracks(dataframe: object):
     return tracks
 
 
-tracks_df = get_album_tracks(albums_df)
-dedupe_data(tracks_df, "tracks_df")
-
-
 @list_to_dataframe
 def get_track_features(dataframe: object):
     """
@@ -137,7 +126,3 @@ def get_track_features(dataframe: object):
                 track_features.append(track_features_dict)
 
     return track_features
-
-track_features_df = get_track_features(tracks_df)
-dedupe_data(track_features_df, "track_features_df")
-
