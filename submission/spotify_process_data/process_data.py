@@ -14,7 +14,7 @@ def list_to_dataframe(func):
 def dedupe_data(dataframe: object, filter: str):
 
     subset_filters = {
-        "artists_df": ['name'],
+        "artists_df": ['artist_name'],
         "albums_df": ['album_name'],
         "tracks_df": ['song_name', 'explicit'],
         "track_features_df": ['track_id', 'song_uri']

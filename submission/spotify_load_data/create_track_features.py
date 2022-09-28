@@ -1,7 +1,6 @@
-table_name = 'track_features'
 
-create_stmt = """
-CREATE TABLE IF NOT EXISTS {0} (
+create_track_features_stmt = """
+CREATE TABLE IF NOT EXISTS track_features (
 	track_id			varchar(50) NOT NULL,
 	danceability		double,
 	energy				double,
@@ -12,6 +11,7 @@ CREATE TABLE IF NOT EXISTS {0} (
 	tempo				double,
 	type				varchar(50),
 	valence				double,
-	song_uri			varchar(100) NOT NULL
+	song_uri			varchar(100) NOT NULL,
+	CONSTRAINT song_uri_pk PRIMARY KEY (song_uri)
 	);
-""".format(table_name)
+"""

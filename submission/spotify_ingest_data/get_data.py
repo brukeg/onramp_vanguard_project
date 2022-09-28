@@ -32,8 +32,8 @@ def get_artist_data(artists_list: list):
         if len(items) > 0:
             artists_dict = {}
             artist = items[0]
-            artists_dict["id"] = artist["id"]
-            artists_dict["name"] = artist["name"]
+            artists_dict["artist_id"] = artist["id"]
+            artists_dict["artist_name"] = artist["name"]
             artists_dict["url"] = artist["external_urls"]["spotify"]
             artists_dict["genre"] = artist["genres"][0]
             artists_dict["image_url"] = artist["images"][0]["url"]
@@ -48,6 +48,7 @@ def get_artist_data(artists_list: list):
 
 artists_df = get_artist_data(input_data)
 dedupe_data(artists_df, "artists_df")
+
 
 @list_to_dataframe
 def get_album_data(dataframe: object):
