@@ -6,6 +6,12 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from submission.spotify_process_data.process_data import list_to_dataframe
 
 
+""" 
+Manages the connection to Spotify through the use of a virtual environment.
+Instantiates a list of artists to query Spotify for.
+Queries Spotify for the data outlined in each function.
+"""
+
 load_dotenv('/Users/brukegetachew/Projects/onramp_vanguard_project/.env')
 client_id = os.getenv('SPOTIPY_CLIENT_ID')
 client_secret = os.getenv('SPOTIPY_CLIENT_SECRET')
@@ -16,14 +22,27 @@ auth_manager = SpotifyClientCredentials(
 )
 
 spotify = spotipy.Spotify(auth_manager=auth_manager)
-input_data = ["foo fighters", "the roots", "a tribe called quest"]
-# input_data = ["the roots"]
+input_data = [
+    "foo fighters", "korn", "disturbed", "papa roach", "slipknot", "tool", "rob zombie",
+    "the roots", "a tribe called quest", "j dilla", "common", "talib kweli", "mos def",
+    "de la soul",
+    "jack white", "radiohead", "the black keys", "red hot chili peppers", "weezer",
+    "the decemberists", "the killers"
+]
 
 
 @list_to_dataframe
 def get_artist_data(artists_list: list):
     """
-    Artists
+    Queries Spotify for each artist in artists_lists. Puts relevant data in a dict for each artist,
+        and appends each dict to a list called artists.
+
+    :param
+        artists_list (list): a list of strings containing artist names in lower case.
+            for our purposes this is the variable "input_data"
+
+    :return
+        List: a list of dicts containing artist metadata
     """
     artists = []
     for artist in artists_list:
@@ -49,7 +68,15 @@ def get_artist_data(artists_list: list):
 @list_to_dataframe
 def get_album_data(dataframe: object):
     """
-    Albums
+    Queries Spotify for each artist's albums using the artist uri. Puts relevant data in a dict for each artist's album,
+        and appends each dict to a list called albums.
+
+    :param
+        dataframe (object): a dataframe containing artist metadata derived from get_artists_data function
+            and the decorator list_to_dicts.
+
+    :return
+        List: a list of dicts containing album metadata
     """
     albums = []
     artist_ids = dataframe["uri"]
@@ -76,7 +103,15 @@ def get_album_data(dataframe: object):
 @list_to_dataframe
 def get_album_tracks(dataframe: object):
     """
-    Tracks
+    Queries Spotify for each album's track using album_id. Puts relevant data in a dict for each artist's
+        album, and appends each dict to a list called tracks.
+
+    :param
+        dataframe (object): a dataframe containing album metadata derived from get_album_data function
+            and the decorator list_to_dicts.
+
+    :return
+        List: a list of dicts containing track metadata
     """
     tracks = []
     album_ids = dataframe["album_id"]
@@ -103,7 +138,15 @@ def get_album_tracks(dataframe: object):
 @list_to_dataframe
 def get_track_features(dataframe: object):
     """
-    Track Features
+    Queries Spotify for each track's track features using track_id. Puts relevant data in a dict for each
+        tracks's track features, and appends each dict to a list called track_features.
+
+    :param
+        dataframe (object): a dataframe containing track metadata derived from get_album_data function
+            and the decorator list_to_dicts.
+
+    :return
+        List: a list of dicts containing track feature metadata
     """
     track_features = []
     track_ids = dataframe["track_id"]

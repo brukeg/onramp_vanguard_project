@@ -1,13 +1,26 @@
 # import dataclasses
-
 from submission.spotify_ingest_data.get_data import *
 from submission.spotify_load_data.load_data import *
 from submission.spotify_process_data.process_data import dedupe_data
 
+"""
+Establishes the file path to spotify.db.
+
+Run __name__ == "__main__" to kick off the script.
+"""
 DB_NAME = "/Users/brukegetachew/Projects/onramp_vanguard_project/submission/spotify.db"
 
-
+# what does this syntax do again?
 def ingest() -> list[object]:
+
+    """
+    Makes functions calls to get_artist_data, get_album_data, get_album_tracks, and get_track_features in get_data.py
+        de-dupes each resulting dataframe. Prints a message and dataframe head() upon completion.
+
+    :return
+        List: a list of tuples containing a dataframe and corresponding table name.
+    """
+
     artists_df = get_artist_data(input_data)
     dedupe_data(artists_df, "artists_df")
     print(f"Loaded artists {artists_df.head(1)}")
@@ -32,15 +45,16 @@ def ingest() -> list[object]:
     ]
 
 
-def load_views():
-    pass
-
-
 def main():
+    """
+    Makes functions calls to create tables, ingest, and load_dfs and create_views.
+
+    :return:
+        None
+    """
     create_tables(create_table_stmts, DB_NAME)
     print(f"Created tables")
 
-    # Load data
     tables = ingest()
     print("Inserting data frames")
 
