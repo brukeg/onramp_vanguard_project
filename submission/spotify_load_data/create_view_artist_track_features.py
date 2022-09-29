@@ -66,26 +66,26 @@ tracks_track_features AS (
 )
 
 SELECT
-    artist_name
-    , genre
-    , artist_popularity
-    , artist_followers
-    , song_name
-    , track_duration_ms
-    , explicit
-    , track_type
-    , danceability
-    , energy
-    , instrumentalness
-    , liveness
-    , loudness
-    , speechiness
-    , tempo
-    , valence
-    , track_feature_type
-    , release_date
-    , album_name
-    , album_type
-FROM tracks_track_features
+    ttf.artist_name
+    , ttf.genre
+    , ttf.artist_popularity
+    , ttf.artist_followers
+    , ttf.song_name
+    , ttf.track_duration_ms
+    , ttf.explicit
+    , ttf.track_type
+    , ttf.danceability
+    , ttf.energy
+    , ttf.instrumentalness
+    , ttf.liveness
+    , ttf.loudness
+    , ttf.speechiness
+    , ttf.tempo
+    , ttf.valence
+    , ttf.track_feature_type
+    , ttf.release_date
+    , ttf.album_name
+    , ttf.album_type
+FROM tracks_track_features ttf
 ORDER BY artist_name ASC, release_date ASC;
 """

@@ -6,8 +6,8 @@ CREATE VIEW IF NOT EXISTS top_artists (
     followers
 ) AS
 
-SELECT artist_name, followers
-FROM artist 
-ORDER BY popularity DESC
+SELECT ar.artist_name, ar.followers
+FROM artist ar
+ORDER BY ar.followers DESC
 LIMIT 20;
 """
