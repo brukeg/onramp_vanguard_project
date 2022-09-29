@@ -44,7 +44,6 @@ def get_artist_data(artists_list: list):
             artists.append(artists_dict)
 
     return artists
-roots_df = get_artist_data(["the roots"])
 
 
 @list_to_dataframe

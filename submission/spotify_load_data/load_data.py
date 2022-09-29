@@ -6,19 +6,21 @@ from submission.spotify_load_data.create_table_track_features import create_trac
 from submission.spotify_load_data.create_view_top_songs_duration import create_top_songs_duration_stmt
 from submission.spotify_load_data.create_view_top_artists import create_top_artists_stmt
 from submission.spotify_load_data.create_view_top_songs_tempo import create_top_songs_tempo_stmt
+from submission.spotify_load_data.create_view_artist_track_features import create_artist_track_feat_stmt
 
 
 create_table_stmts = [
     create_artists_stmt,
     create_albums_stmt,
     create_tracks_stmt,
-    create_track_features_stmt
+    create_track_features_stmt,
 ]
 
-create_view_stmts =[
+create_view_stmts = [
     create_top_songs_duration_stmt,
     create_top_artists_stmt,
-    create_top_songs_tempo_stmt
+    create_top_songs_tempo_stmt,
+    create_artist_track_feat_stmt,
 ]
 
 
@@ -46,6 +48,7 @@ def load_dfs(df_tuples: list, db_name: str):
     for df_info in df_tuples:
         df, table_name = df_info
         insert_table_data(df, table_name, db_name)
+
 
 def create_views(stmts: list, db_name: str):
     with sqlite3.connect(db_name) as conn:

@@ -25,10 +25,10 @@ def ingest() -> list[object]:
     print(f"Loaded features {track_features_df.head(1)}")
 
     return [
-        (artists_df, "artists"),
-        (albums_df, "albums"),
-        (tracks_df, "tracks"),
-        (track_features_df, "track_features")
+        (artists_df, "artist"),
+        (albums_df, "album"),
+        (tracks_df, "track"),
+        (track_features_df, "track_feature")
     ]
 
 

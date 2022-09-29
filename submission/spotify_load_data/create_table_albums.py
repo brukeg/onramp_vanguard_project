@@ -1,6 +1,6 @@
 
 create_albums_stmt = """
-CREATE TABLE IF NOT EXISTS albums (
+CREATE TABLE IF NOT EXISTS album (
 	album_id			varchar(50)     NOT NULL,
 	album_name			varchar(255),
 	external_url		varchar(100),

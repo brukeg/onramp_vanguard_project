@@ -1,6 +1,6 @@
 
 create_track_features_stmt = """
-CREATE TABLE IF NOT EXISTS track_features (
+CREATE TABLE IF NOT EXISTS track_feature (
 	track_id			varchar(50) NOT NULL,
 	danceability		double,
 	energy				double,
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS track_features (
 	liveness			double,
 	loudness			double,
 	speechiness			double,
-	tempo				double,
+	tempo   			double,
 	type				varchar(50),
 	valence				double,
 	song_uri			varchar(100) NOT NULL,

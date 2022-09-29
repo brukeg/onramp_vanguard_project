@@ -1,6 +1,6 @@
 
 create_artists_stmt = """
-CREATE TABLE IF NOT EXISTS artists (
+CREATE TABLE IF NOT EXISTS artist (
 	artist_id			varchar(50)     NOT NULL,
 	artist_name		    varchar(255),
 	external_url		varchar(100),

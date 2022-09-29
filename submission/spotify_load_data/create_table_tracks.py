@@ -1,6 +1,6 @@
 
 create_tracks_stmt = """
-CREATE TABLE IF NOT EXISTS tracks (
+CREATE TABLE IF NOT EXISTS track (
 	track_id			varchar(50) 	NOT NULL,
 	song_name			varchar(255),
 	external_url		varchar(100),
