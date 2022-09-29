@@ -8,10 +8,7 @@ from submission.spotify_process_data.process_data import list_to_dataframe
 
 """ 
 Manages the connection to Spotify through the use of a virtual environment.
-Instantiates a list of artists to query Spotify for.
-Queries Spotify for the data outlined in each function.
 """
-
 load_dotenv('/Users/brukegetachew/Projects/onramp_vanguard_project/.env')
 client_id = os.getenv('SPOTIPY_CLIENT_ID')
 client_secret = os.getenv('SPOTIPY_CLIENT_SECRET')
@@ -22,6 +19,10 @@ auth_manager = SpotifyClientCredentials(
 )
 
 spotify = spotipy.Spotify(auth_manager=auth_manager)
+
+"""
+Instantiates a list of artists to query Spotify for.
+"""
 input_data = [
     "foo fighters", "korn", "disturbed", "papa roach", "slipknot", "tool", "rob zombie",
     "the roots", "a tribe called quest", "j dilla", "common", "talib kweli", "mos def",
@@ -30,7 +31,9 @@ input_data = [
     "the decemberists", "the killers"
 ]
 
-
+"""
+Begin queries to Spotify.
+"""
 @list_to_dataframe
 def get_artist_data(artists_list: list):
     """

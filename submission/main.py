@@ -12,7 +12,6 @@ DB_NAME = "/Users/brukegetachew/Projects/onramp_vanguard_project/submission/spot
 
 # what does this syntax do again?
 def ingest() -> list[object]:
-
     """
     Makes functions calls to get_artist_data, get_album_data, get_album_tracks, and get_track_features in get_data.py
         de-dupes each resulting dataframe. Prints a message and dataframe head() upon completion.
@@ -20,7 +19,6 @@ def ingest() -> list[object]:
     :return
         List: a list of tuples containing a dataframe and corresponding table name.
     """
-
     artists_df = get_artist_data(input_data)
     dedupe_data(artists_df, "artists_df")
     print(f"Loaded artists {artists_df.head(1)}")
