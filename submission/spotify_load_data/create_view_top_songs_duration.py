@@ -10,6 +10,6 @@ SELECT ar.artist_name, tr.song_name, tr.duration_ms
 FROM artist ar
 JOIN album al USING (artist_id)
 JOIN track tr USING (album_id)
-ORDER BY ar.artist_name ASC, tr.duration_ms DESC 
+ORDER BY tr.duration_ms DESC, ar.artist_name ASC  
 LIMIT 10;
 """
