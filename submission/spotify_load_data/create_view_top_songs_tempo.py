@@ -11,6 +11,6 @@ FROM artist ar
 JOIN album al USING (artist_id)
 JOIN track tr USING (album_id)
 JOIN track_feature tf USING (track_id)
-ORDER BY tf.tempo DESC, ar.artist_name ASC
+ORDER BY ar.artist_name ASC, tf.tempo DESC
 LIMIT 10;
 """

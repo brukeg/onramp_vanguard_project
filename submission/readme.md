@@ -30,3 +30,65 @@ With `creates_views()` data in each of the four tables is used to create sql vie
 To run this project a `requirements.txt` file is provided.
 
 ## Views
+
+### top_songs_duration
+__Description:__ Top 10 songs by artist in terms of duration_ms. Ordered by artist ascending and duration_ms descending
+
+__Columns__
+- _artist_name:_ The name of the musician or band.
+- _song_name_: The name of the song.
+- _duration_ms_: The duration of the song in milliseconds
+
+### top_artists
+__Description:__ Top 20 artists in the database ordered by number of followers descending.
+
+__Columns__
+- _artist_name:_ The name of the musician or band.
+- _followers_: The number of Spotify followers the artist has. 
+
+### top_songs_tempo
+__Description:__ Top 10 songs by artist in terms of tempo. Ordered by artist ascending and duration_ms descending)
+
+__Columns__
+- _artist_name:_ The name of the musician or band
+- _song_name_: The name of the song.
+- _tempo_: The overall estimated tempo of a track in beats per minute (BPM).
+
+### artist_track_features
+__Description:__ A wide view containing metadata (or features) about artists, albums, tracks, and track features ordered by artist_name ascending and release_date ascending.
+A potential use could be for data scientists to explore with dimensionality reduction (like PCA) the potential for a small subset of features to predict the likelie that a given artist is popular.  
+
+Detailed descriptions of column data can be found here: [Spotify.Tracks](https://hexdocs.pm/spotify_web_api/Spotify.Tracks.html#:~:text=of%20the%20track.-,The%20value%20will%20be%20between%200%20and%20100%2C%20with%20100,how%20recent%20those%20plays%20are.) 
+and [Spotify.AudioFeatures](https://hexdocs.pm/spotify_web_api/Spotify.AudioFeatures.html#t:loudness/0)
+
+__Columns__
+- _artist_name:_ The name of the musician or band.
+- _genre:_ A musical subgenre. One of: alternative metal, alternative hip hop, or alternative rock.
+- _artist_popularity_: The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.
+- _artist_followers_: The number of Spotify followers the artist has.
+- _song_name_: The name of the song.
+- _track_duration_ms_: The duration of the song in milliseconds.
+- _explicit:_ A track with explicit lyrics: 1. 0 for no explicit lyrics.
+- _track_type:_ The object type: `track`.
+- _danceability_: How danceable a track is. A value of 0.0 is least danceable and 1.0 is most danceable.
+- _energy:_ Measurement of intensity and activity. Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity.
+- _instrumentalness_: Measurement of the likelihood the track is instrumental. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.
+- _liveness:_ Measurement of the likelihood the track is live. Detects the presence of an audience in the recording. A value above 0.8 provides strong likelihood that the track is live.
+- _loudness:_ Relative Loudness of a track compared to other Spotify tracks. Values typical range between -60 and 0 db.
+- _speechiness:_ The detected presence of speech in a track. The more exclusively speech-like the recording the closer to 1.0 the attribute value.
+- _tempo:_ The overall estimated tempo of a track in beats per minute (BPM).
+- _valence:_ The positiveness of a track. A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.
+- _track_feature_type:_ The object type: `audio_features`
+- _release_date:_ An album release date (YYYY-MM-DD). 
+- _album_name:_ The name of the musician or band.
+- _album_type:_ The object type: `album`.
+
+#### avg_loudness
+__Description:__ A table containing genre, release date, and the average loudness of a given album. A potential use could be to see how loudness has changed over time overall or for a particular subgenre.
+
+__Columns__
+- _genre:_ A musical subgenre. One of: alternative metal, alternative hip hop, or alternative rock. 
+- _release_date_: An album release date (YYYY-MM-DD).
+- _avg_loudness_: An album's average loudness in db (-60 to 0).
+
+    
