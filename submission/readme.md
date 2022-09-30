@@ -91,4 +91,11 @@ __Columns__
 - _release_date_: An album release date (YYYY-MM-DD).
 - _avg_loudness_: An album's average loudness in db (-60 to 0).
 
-    
+## Data Visualization: /spotify_data_visualization
+Contains four files: 
+- `spotify_average_album_valance.py`: Plots the average valence per album for the band A Tribe Called Quest. 
+- `spotify_average_loudness_by_year.py`: Plots the average loudness of a given album by release date and year.
+- `spotify_top_ten_total_followers.py`: Plots the top 10 artists by number of followers.
+- `visualization.pdf`: summarizes the findings.
+
+To produce visualizations from the 3 `.py` files. you must run the files individually.
