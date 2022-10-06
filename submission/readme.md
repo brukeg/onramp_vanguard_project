@@ -32,7 +32,7 @@ To run this project a `requirements.txt` file is provided.
 ## Views
 
 ### top_songs_duration
-__Description:__ Top 10 songs by artist in terms of duration_ms. Ordered by artist ascending and duration_ms descending
+__Description:__ Top 10 songs for each artist in terms of duration_ms. Ordered by artist ascending and duration_ms descending.
 
 __Columns__
 - _artist_name:_ The name of the musician or band.
@@ -47,7 +47,7 @@ __Columns__
 - _followers_: The number of Spotify followers the artist has. 
 
 ### top_songs_tempo
-__Description:__ Top 10 songs by artist in terms of tempo. Ordered by artist ascending and duration_ms descending)
+__Description:__ Top 10 songs for each artist in terms of tempo. Ordered by artist ascending and duration_ms descending.
 
 __Columns__
 - _artist_name:_ The name of the musician or band
@@ -56,7 +56,7 @@ __Columns__
 
 ### artist_track_features
 __Description:__ A wide view containing metadata (or features) about artists, albums, tracks, and track features ordered by artist_name ascending and release_date ascending.
-A potential use could be for data scientists to explore with dimensionality reduction (like PCA) the potential for a small subset of features to predict the likelie that a given artist is popular.  
+A potential use could be for data scientists to explore with dimensionality reduction (like PCA) the potential for a small subset of features to predict the likelihood that a given artist is popular.  
 
 Detailed descriptions of column data can be found here: [Spotify.Tracks](https://hexdocs.pm/spotify_web_api/Spotify.Tracks.html#:~:text=of%20the%20track.-,The%20value%20will%20be%20between%200%20and%20100%2C%20with%20100,how%20recent%20those%20plays%20are.) 
 and [Spotify.AudioFeatures](https://hexdocs.pm/spotify_web_api/Spotify.AudioFeatures.html#t:loudness/0)
